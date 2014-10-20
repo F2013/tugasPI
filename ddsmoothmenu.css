@@ -1,133 +1,575 @@
-.navigation {
-	width:923px;
-	float:left;
-	height:31px;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:101%;
-	position:relative;
-	/*background-color:#38b274;*/
-	background-color:#38b274;
-	left:18px;
+/* CSS Document */
+@import url(ticker.css);
+/* Tooltips Alam */
+div.tooltip {
+	background-color:#000;
+	border:1px solid #fff;
+	padding:10px 15px;
+	width:200px;
+	display:none;
+	color:#fff;
+	text-align:left;
+	font-size:12px;
+
+	/* outline radius for mozilla/firefox only */
+	-moz-box-shadow:0 0 10px #000;
+	-webkit-box-shadow:0 0 10px #000;
 }
-.ddsmoothmenu{
-	float:left;
-}
-.ddsmoothmenu ul{
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	z-index:9999 !important;
+/*#loginform {
+	border:1px outset #ccc;
+	background:#fff url(img/h600.png) repeat-x;
+	padding:20px;
+	margin:20px 0;
+	width:350px;
+	-moz-border-radius:4px;
 }
 
-/*Top level list items*/
-.ddsmoothmenu ul li{
-	position: relative;
-	display: inline;
-	float: left;
-	z-index:9999 !important;
-}
-/*Top level menu link items style*/
-.ddsmoothmenu ul li a{
+#loginform h3 {
+	text-align:center;
+	margin:0 0 10px 0;
+}*/
+
+/* Ticker Styling */
+.ticker-wrapper.has-js {
+	margin: -7px -15px 0px -19px;
+	padding: 0px 0px;
+	width: 883px;
+	height: 32px;
 	display: block;
-	color: white;
-	padding:0px 23px;
-	line-height:31px;
-	text-decoration: none;
+	
+	background-color: #c5ffac;
+	font-size: 0.75em;
+}
+.ticker {
+	width: 923px;
+	height: 23px;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	background-color: #c5ffac;
+}
+.ticker-title {
+	padding-top: 7px;
+	color: #990000;
+	font-weight: bold;
+	background-color: #c5ffac;
+	text-transform: uppercase;
+}
+.ticker-content {
+	margin: 0px;
+	padding-top: 9px;
+	position: absolute;
+	color: #1f5209;
+	font-weight: bold;
+	background-color: #c5ffac;
+	overflow: hidden;
+	white-space: nowrap;
+	line-height: 1.2em;
+}
+.ticker-content:focus {
+	none;
+}
+.ticker-content a {
+	text-decoration: none;	
+	color: #1F527B;
+}
+.ticker-content a:hover {
+	text-decoration: underline;	
+	color: #0D3059;
+}
+.ticker-swipe {
+	padding-top: 9px;
+	position: absolute;
+	top: 0px;
+	background-color: #c5ffac;
+	display: block;
+	width: 800px;
+	height: 23px; 
+}
+.ticker-swipe span {
+	margin-left: 1px;
+	background-color: #c5ffac;
+	border-bottom: 1px solid #1F527B;
+	height: 12px;
+	width: 7px;
+	display: block;
+}
+.ticker-controls {
+	margin: -15px -10px -20px 0px;
+	list-style-type: none;
+	float: left;
+}
+.ticker-controls li {
+	padding: 0px;
+	margin-left: 5px;
+	float: left;
+	cursor: pointer;
+	height: 16px;
+	width: 16px;
+	display: block;
+}
+.ticker-controls li.jnt-play-pause {
+	background-image: url('../images/controls.png');
+	background-position: 32px 16px;
+}
+.ticker-controls li.jnt-play-pause.over {
+	background-position: 32px 32px;
+}
+.ticker-controls li.jnt-play-pause.down {
+	background-position: 32px 0px;
+}
+.ticker-controls li.jnt-play-pause.paused {
+	background-image: url('../images/controls.png');	
+	background-position: 48px 16px;
+}
+.ticker-controls li.jnt-play-pause.paused.over {
+	background-position: 48px 32px;
+}
+.ticker-controls li.jnt-play-pause.paused.down {
+	background-position: 48px 0px;
+}
+.ticker-controls li.jnt-prev {
+	background-image: url('../images/controls.png');
+	background-position: 0px 16px;		
+}
+.ticker-controls li.jnt-prev.over {
+	background-position: 0px 32px;		
+}
+.ticker-controls li.jnt-prev.down {
+	background-position: 0px 0px;		
+}
+.ticker-controls li.jnt-next {
+	background-image: url('../images/controls.png');	
+	background-position: 16px 16px;	
+}
+.ticker-controls li.jnt-next.over {
+	background-position: 16px 32px;	
+}
+.ticker-controls li.jnt-next.down {	
+	background-position: 16px 0px;	
+}
+.js-hidden {
+	display: none;
+}
+.no-js-news {
+	padding: 10px 0px 0px 45px; 
+	color: #c5ffac;
+}
+.left .ticker-swipe {
+	/*left: 80px;*/
+}
+.left .ticker-controls, .left .ticker-content, .left .ticker-title, .left .ticker {
+    float: left;
+}
+.left .ticker-controls {
+    padding-left: 6px;
+}
+.right .ticker-swipe {
+	/*right: 80px;*/
+}
+.right .ticker-controls, .right .ticker-content, .right .ticker-title, .right .ticker {
+    float: right;
+}
+.right .ticker-controls {
+    padding-right: 6px;
+}
+/*end ticker
+
+/* http://www.quirksmode.org/css/forms.html */
+#inputs label, #inputs input, #inputs textarea, #inputs select {
+	display: block;
+	width: 150px;
+	float: left;
+	margin-bottom: 20px;
+}
+
+#inputs label {
+	text-align: right;
+	width: 75px;
+	padding-right: 20px;
+}
+
+#inputs br {
+	clear: left;
+}
+
+
+a:active {
+  outline:none;
+}
+
+:focus {
+  -moz-outline-style:none;
+}
+
+/*Listticker*/
+#sidebar {
+	display: block;
+	float: left;
+	width: 200px;
+	padding-left: 0px;
+	margin-bottom: 0px;
+	font-size: 0.8em;
+	/*background: url(../images/sidebar_bg.jpg) no-repeat 0 0;*/
+}
+
+#sidebar h2 {
+	font-size: 2em;
+	font-variant: small-caps;
+	color: #000000;
+	border-bottom: 0px solid #ccc;
+	width: 500px;
+	font-weight: bold;
+	margin: 0px 0 0px 0;
+}
+
+#listsidebar{
+	width:200px;
+	overflow:hidden;
+	border:solid 1px #DEDEDE;
+	padding-bottom: 13px;
+}
+
+#listsidebar .news-title{
+	font-weight:bold;
+	margin-bottom:4px;
 	font-size:12px;
-	border-right:#FFF solid 1px;
+	padding-left:0px;
+	padding-top: 5px;
 }
-.ddsmoothmenu ul li a.last{
-	border-right:none;
+#listsidebar .news-text{
+	font-size:12px;
+	color:#333;
 }
-* html .ddsmoothmenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
-	display: inline-block;
+#listsidebar .news-title2{
+	font-weight:bold;
+	padding-left:0px;
+	font-size:12px;
 }
-.ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited{
-	color: white;
-}
-.ddsmoothmenu ul li a.selected{ /*CSS class that's dynamically added to the currently active menu items' LI A element*/
-	color:#000;
-	background-color:#FF3399;
-}
-.ddsmoothmenu ul li a:hover{
-	color:#000;
-	background-color:#FF3399;
-}	
-/*1st sub level menu*/
-.ddsmoothmenu ul li ul{
-	position: absolute;
-	left: 0;
-	display: none; /*collapse all sub menus to begin with*/
-	visibility: hidden;
-	background-color:#efe10c;
-	border-top:none;
-	padding:0px 0px;
-}
-/*Sub level menu list items (undo style from Top level List Items)*/
-.ddsmoothmenu ul li ul li{
-	display: list-item;
-	float: none;
-}
-/*All subsequent sub menu levels vertical offset after 1st level sub menu */
-.ddsmoothmenu ul li ul li ul{
-	top: 0;
-}
-/* Sub level menu links style */
-.ddsmoothmenu ul li ul li a{
-	font: normal 11px Verdana;
-	width: 180px; /*width of sub menus*/
-	padding: 7px 10px 0px 10px;
-	height:23px;
+
+/* Layout */
+
+body {
 	margin: 0;
-	border:none;
-	background-image:none;
-	border-bottom:#fff solid 1px;
-	color:#000 !important;
+	padding: 0;
 }
-.ddsmoothmenu ul li ul li a:hover{
-	background-color:#38b274;
-	color:#fff !important;
+
+#header, #footer, .clearboth {
+	clear: both;
 }
-.ddsmoothmenu ul li ul li a.selected{
-	background-color:#38b274;
-	color:#fff !important;
+
+#top {
+	margin: 0;
+	padding: 0 3%;
 }
-.ddsmoothmenu ul li a.dropdown:hover {
-	background-color:#38b274;
-	background-repeat:no-repeat;
-	color:#fff !important;
+
+#topleft, #topright {
+	margin: 0;
+	padding: 16px 0;
 }
-.ddsmoothmenu ul li a.dropdown {
-	background-image:url(../images/menuarrow.png);
-	background-position:96% 45%;
-	background-repeat:no-repeat;
+
+hr {
+	display: none;
 }
-.ddsmoothmenu ul li ul ul{
-	margin-left:3px;
+
+.wrap {
+	margin: 0 auto;
+/*	max-width: 62em; */
+	width: 960px;
 }
-/* Holly Hack for IE \*/
-* html .ddsmoothmenu{
-	height: 1%;
-} 
-/*Holly Hack for IE7 and below*/
-/* ######### CSS classes applied to down and right arrow images  ######### */
-.downarrowclass{
-	position: absolute;
-	top: 17px;
-	right: 7px;
+
+#wraptop .spacer {
+	margin: 0 2%;
+	padding: 0;
 }
-.rightarrowclass{
-	position: absolute;
-	top: 6px;
-	right: 5px;
+
+#wrapmain .spacer {
+	margin: 0 2%;
+	padding: 8px 2%;
 }
-/* ######### CSS for shadow added to sub menus  ######### */
-.ddshadow{
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 0;
-	height: 0;
+
+.floatleft {
+	float: left;
 }
-.toplevelshadow{
+
+.floatright {
+	float: right;
+}
+
+.contentwide {
+	width: 80%;
+/*	margin: 0 4% 24px 0; */
+}
+
+.content {
+	width: 72%;
+}
+
+.sideright {
+	width: 24%;
+}
+
+.sideleft {
+	width: 17%;
+/*	margin: 0 0 24px 3%; */
+}
+
+.node, .block, .dir {
+	margin: 0;
+	padding: 8px 0;
+}
+
+#appcat {
+	border-top: 5px solid #ccc;
+}
+
+#footer .floatleft, #footer .floatright {
+	padding: 16px 0 8px;
+	border-top: 1px solid #999;
+}
+
+
+/* Colors */
+
+body {
+	color: #333;
+	/*background-color: #ccc;*/
+	background: url(../images/dot.gif);
+}
+
+.wrap .spacer {
+	background-color: #fff;
+}
+
+#top {
+	color: #888;
+	background-color: #38b274;
+}
+
+#header {
+	margin: 0;
+	padding: 0;
+	background-color: #3366FF;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-image: url(../images/header.png);
+}
+
+#header h1 {
+	margin: 0;
+	padding: 0;
+}
+
+.path {
+	line-height: 20px;
+	text-indent : 0;
+	background-image: url(../img/icon_dir_up_list.png);
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+.node h3, .block h3, .dir h3 {
+	border-bottom: 1px solid #ccc;
+}
+
+
+/* Fonts */
+
+body, input {
+	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+#top {
+	font-size: 0.75em;
+}
+
+#topleft a {
+	font-weight: bold;
+}
+
+#header h1 {
+}
+
+#home #header, #home #header h1 {
+	height: 125px;
+}
+
+#page #header, #page #header h1 {
+	height: 125px;
+}
+
+#header h1 span {
+	display: none;
+}
+
+.node {
+	font-size: 0.8em;
+}
+
+.block, .dir {
+	font-size: 0.8em;
+}
+
+ul.filelist {
+	margin: 0;
+	padding: 4px 0;
+	list-style : none;
+}
+
+ul.filelist li {
+	margin: 0;
+	padding: 4px 0 4px 20px;
+	text-indent: 0;
+	background: url(../img/icon_file_list.png) no-repeat 1px 6px;
+	line-height: 1.3em;
+}
+
+.warning {
+	padding: 0.5em;
+	color: #f00;
+	background-color: #ccc;
+	font-size: 1.5em;
+}
+
+#footer {
+	font-size: 0.7em;
+}
+
+
+/* Navigation */
+
+a {
+	text-decoration: none;
+}
+
+#main a, #footer a {
+	color: #053900;
+	text-decoration: none;
+	border-bottom: 1px dotted #053900;
+}
+
+#main a:hover, #footer a:hover {
+	color: #003f01;
+	text-decoration: none;
+	border-bottom: 1px solid #003f01;
+}
+
+#top a {
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 1px dotted #999;
+}
+
+#top a:hover {
+	color: #00cf1d;
+	border-bottom: 1px solid #00cf1d;
+}
+
+#header h1 a {
+	color: #00ff00;
+}
+
+#header h1 a:hover {
+	color: #00cc00;
+}
+
+.block ul {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 16px;
+}
+
+.block ul li {
+	margin: 0;
+	padding: 6px;
+	display: block;
+	border-bottom: 1px solid #ccc;
+}
+
+.dir ul {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 16px;
+}
+
+.dir ul li {
+	margin: 0;
+	padding: 6px 0 6px 24px;
+	display: block;
+	border-bottom: 1px solid #ccc;
+	background-image: url(../img/icon_dir_list.png);
+	background-repeat: no-repeat;
+	background-position: 0px 6px;
+}
+
+
+/* Tables */
+
+table.metatable th {
+	padding: 8px;
+	color: #fff;
+	background-color: #36c;
+}
+
+table.metatable td {
+	vertical-align: top;
+	padding: 6px;
+	font-size: 1em;
+}
+
+table.metatable td:hover {
+	background-color: #fc0;
+}
+
+table.metatable tr {
+	background-color: #ccc;
+}
+
+table.metatable tr:hover {
+	background-color: #16ee00;
+}
+
+
+/* Forms */
+
+.block form {
+	margin: 0;
+}
+
+.textsearch {
+	border: 3px solid #ddd;
+	background-color: #ddd;
+}
+
+.textsearch:hover {
+	border: 3px solid #36c;
+	background-color: #fff;
+}
+
+.submit {
+	margin-top: 2px;
+	color: #fff;
+	background-color: #36c;
+	border: 2px solid #36c;
+	font-weight: bold;
+}
+
+.submit:hover {
+	color: #000;
+	background-color: #69f;
+	border: 2px solid #69f;
+}
+
+#loginform {
+	font-size: 1.5em;
+}
+
+#loginform input {
+	background-color: #9CD8BA;
+	border: 5px solid #38b274;
+}
+
+#loginform input:hover {
+	background-color: #FF3399;
+	border: 5px solid #FF0066;
 }
