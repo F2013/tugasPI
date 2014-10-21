@@ -1,6 +1,6 @@
 /* CSS Document */
 @import url(ticker.css);
-/* Tooltips Alam */
+
 div.tooltip {
 	background-color:#000;
 	border:1px solid #fff;
@@ -306,7 +306,8 @@ hr {
 }
 
 .sideright {
-	width: 24%;
+	width: 28%;
+	text-align: center;
 }
 
 .sideleft {
@@ -343,13 +344,13 @@ body {
 
 #top {
 	color: #888;
-	background-color: #38b274;
+	background-color: #013600;
 }
 
 #header {
 	margin: 0;
 	padding: 0;
-	background-color: #3366FF;
+	background-color: #3ec837;
 	background-position: left center;
 	background-repeat: no-repeat;
 	background-image: url(../images/header.png);
@@ -369,7 +370,7 @@ body {
 }
 
 .node h3, .block h3, .dir h3 {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 10px solid #FFD630;
 }
 
 
@@ -480,7 +481,7 @@ a {
 }
 
 .block ul li {
-	margin: 0;
+	margin: 5;
 	padding: 6px;
 	display: block;
 	border-bottom: 1px solid #ccc;
