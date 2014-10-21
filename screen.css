@@ -371,6 +371,7 @@ body {
 
 .node h3, .block h3, .dir h3 {
 	border-bottom: 10px solid #FFD630;
+	border:5px outset #00CCFF;
 }
 
 
